@@ -64,7 +64,6 @@ public class Application extends ResourceConfig implements ServletContextListene
    public void contextInitialized(ServletContextEvent event)
    {
       Application.updateProxyUrl();
-
    }
 
    public void contextDestroyed(ServletContextEvent event)
