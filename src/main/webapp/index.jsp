@@ -15,14 +15,14 @@ xmlns:fn="http://java.sun.com/jsp/jstl/functions" >
     <div>
       <script type="text/javascript"><![CDATA[
   $(document).ready(function() {
-    $('#newFeedItem').click(function() {
+    $('#findBest').click(function() {
       $.ajax({
-        url:'api/testConsumer',
-        data: $('#feedText').value,
+        url:'api/testConsumer/'+$('#realmId').val(),
+        contentType:"application/json; charset=utf-8",
         dataType: 'json',
-        type: 'POST'
+        type: 'GET'
       }).done(function(data) {
-          $('#result').innerHTML = data.result;
+          $('#result').text(data.result);
       }).fail(function( jqXHR, textStatus, errorThrown) {
         console.log('always.'+textStatus);
       });
@@ -30,8 +30,8 @@ xmlns:fn="http://java.sun.com/jsp/jstl/functions" >
   });
 ]]>
       </script>      
-      <input id="feedText" type="text"/><br/>
-      <button id="newFeedItem">Insert New Feed Item</button>
+      RealmID: <input id="realmId" type="text"/><br/>
+      <button id="findBest">Find best restaurant</button>
       <div>
         Results:
         <div id='result'></div>
