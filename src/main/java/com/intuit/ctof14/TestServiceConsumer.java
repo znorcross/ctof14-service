@@ -38,6 +38,7 @@ public class TestServiceConsumer
          HttpResponse<JsonNode> jsonResponse = request.asJson();
          JsonNode body = jsonResponse.getBody();
          JSONArray feed = body.getObject().getJSONArray("feed");
+         
          String winningContent = "";
          for (int index = 0; index < feed.length(); index++)
          {
@@ -48,6 +49,7 @@ public class TestServiceConsumer
                winningContent = itemContent;
             }
          }
+         
          JSONObject obj = new JSONObject();
          obj.put("result", winningContent);
          return Response.ok(obj.toString(), MediaType.APPLICATION_JSON).build();
