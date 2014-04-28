@@ -19,7 +19,7 @@ public class Application extends ResourceConfig implements ServletContextListene
    //
    // 
    // TEAM_ID = use TEAM_ID for your table. Please see the card. Your team id is numeric.
-   public final static String TEAM_ID = "";
+   public final static String TEAM_ID = "3221";
    // APP_ID = Private Auth appid - get from your on boarding exercise from the service portal
    public final static String APP_ID = "";   
    // APP_SECRET = Private Auth secret - get from your on boarding exercise from the service portal
