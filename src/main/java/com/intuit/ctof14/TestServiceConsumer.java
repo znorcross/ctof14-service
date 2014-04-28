@@ -2,21 +2,17 @@ package com.intuit.ctof14;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+import com.intuit.ctof14.Application;
+import com.intuit.ctof14.TestServiceConsumer;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.request.HttpRequest;
-import com.mashape.unirest.request.HttpRequestWithBody;
 import com.mashape.unirest.request.body.RequestBodyEntity;
 
-import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
@@ -25,6 +21,8 @@ import javax.ws.rs.core.Response;
 @Path("testConsumer")
 public class TestServiceConsumer
 {
+  final static String baseFeedUri = "https://activityfeed-prf.platform.intuit.com";
+  
    @GET
    @Path("findBestRestaurant")
    @Produces("application/json")
@@ -33,9 +31,10 @@ public class TestServiceConsumer
       HttpRequest request = null;
       try
       {
-         // Setup request to gateway activity feed end point
+         // Setup request to gateway activity feed end point using the very handy 
+         // Unirest library http://unirest.io/
          request =
-            Unirest.get("https://activityfeed-prf.platform.intuit.com/v1/feeds")
+            Unirest.get(TestServiceConsumer.baseFeedUri+"/v1/feeds")
               .header("accept", "application/json")
               .header("Authorization", Application.getAuthorizationHeader());
 
@@ -46,21 +45,24 @@ public class TestServiceConsumer
          // Get the array of feed elements
          JSONArray feed = body.getObject().getJSONArray("feed");
          
-         // Search through finding the longest content
-         String winningContent = "";
+         String winningRestaurant = "";
+         
+         // Iterate through feed list finding best restaurant
          for (int index = 0; index < feed.length(); index++)
          {
             JSONObject item = feed.getJSONObject(index);
             String itemContent = item.getString("content");
-            if (!itemContent.startsWith("Let's meet at") && itemContent.length() >= winningContent.length())
-            {
-               winningContent = itemContent;
-            }
+            // Write your code here to choose the best restaurant by setting winningRestaurant to your choice
+            //
+            //
+            //
+            //
+            // .........................................................
          }
          
          // Return winner
          JSONObject obj = new JSONObject();
-         obj.put("result", winningContent);
+         obj.put("result", winningRestaurant);
          return Response.ok(obj.toString(), MediaType.APPLICATION_JSON).build();
       }
       catch (Throwable e)
@@ -77,18 +79,26 @@ public class TestServiceConsumer
       RequestBodyEntity request = null;
       try
       {
-        // Create a new note object
-        JSONObject json = new JSONObject();
-        json.put("feedType", "note");
-        json.put("content", "Let's meet at "+bestRestaurant);
+        // Create a new note feed item
+        JSONObject feedItem = new JSONObject();
+
+        // Write your code here to set the feed type and content just like you did with swagger. The best restaurant is passed as a parameter
+        // Hint: JSONObject is just like a dictionary. You can do feedItem.put("fieldName","fieldValue")
+        // Hint: The two fields you set for a feed note from the swagger documentation are feedType and content
+        //
+        //
+        //
+        //
+        // .........................................................
         
          // Setup request to gateway activity feed end point
+         // Set the body of the request to the json object
          request =
-            Unirest.post("https://activityfeed-prf.platform.intuit.com/v1/feed")
+            Unirest.post(TestServiceConsumer.baseFeedUri+"/v1/feed")
               .header("accept", "application/json")
               .header("Authorization", Application.getAuthorizationHeader())
               .header("Content-Type","application/json")
-              .body(json.toString());
+              .body(feedItem.toString());
 
          // Make request to gateway
          HttpResponse<JsonNode> jsonResponse = request.asJson();
