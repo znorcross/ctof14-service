@@ -6,19 +6,27 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
   <listener>
     <listener-class>com.intuit.ctof14.Application</listener-class>
   </listener>
-<servlet>
-  <servlet-name>JerseyJaxrsConfig</servlet-name>
-  <servlet-class>com.wordnik.swagger.jersey.config.JerseyJaxrsConfig</servlet-class>
-  <init-param>
-    <param-name>api.version</param-name>
-    <param-value>1.0.0</param-value>
-  </init-param>
-  <init-param>
-    <param-name>swagger.api.basepath</param-name>
-    <param-value>http://localhost:8002/rest</param-value>
-  </init-param>
-  <load-on-startup>2</load-on-startup>
-</servlet>
+  <filter>
+    <filter-name>CORS</filter-name>
+    <filter-class>com.intuit.ctof14.util.ResponseCorsFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>CORS</filter-name>
+    <url-pattern>*</url-pattern>
+  </filter-mapping>
+  <servlet>
+    <servlet-name>JerseyJaxrsConfig</servlet-name>
+    <servlet-class>com.wordnik.swagger.jersey.config.JerseyJaxrsConfig</servlet-class>
+    <init-param>
+      <param-name>api.version</param-name>
+      <param-value>1.0.0</param-value>
+    </init-param>
+    <init-param>
+      <param-name>swagger.api.basepath</param-name>
+      <param-value>http://localhost:8002/rest</param-value>
+    </init-param>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
   <servlet>
     <servlet-name>jersey-serlvet</servlet-name>
     <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
