@@ -77,6 +77,7 @@ public class TestServiceConsumer
       RequestBodyEntity request = null;
       try
       {
+        // Create a new note object
         JSONObject json = new JSONObject();
         json.put("feedType", "note");
         json.put("content", "Let's meet at "+bestRestaurant);

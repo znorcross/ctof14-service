@@ -14,8 +14,12 @@ import javax.servlet.ServletContextListener;
 
 public class Application extends ResourceConfig implements ServletContextListener
 {
+   // Application constants.
+   // TEAM_ID = use TEAM_ID for your table
    public final static String TEAM_ID = "956";
-   public final static String APP_ID = "Intuit.platform.qbodeveloper.testapp";
+   // APP_ID = get from your on boarding exercise
+   public final static String APP_ID = "Intuit.platform.qbodeveloper.testapp";   
+   // APP_SECRET = get from your on boarding exercise
    public final static String APP_SECRET = "preprdvbgYUUxBx5SGqpPdOm3Iqhg38R6G7J75BO";
    
    private final static String VCAP_APPLICATION = "VCAP_APPLICATION";
