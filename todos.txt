@@ -1,2 +1,0 @@
-1. DNS for *.codenvy.ctof14.intuit.com pointing to 54.212.100.74
-2. 
