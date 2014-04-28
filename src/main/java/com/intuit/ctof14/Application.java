@@ -14,7 +14,7 @@ import javax.servlet.ServletContextListener;
 
 public class Application extends ResourceConfig implements ServletContextListener
 {
-   public final static String TEAM_ID = "100";
+   public final static String TEAM_ID = "956";
    public final static String APP_ID = "Intuit.platform.qbodeveloper.testapp";
    public final static String APP_SECRET = "preprdvbgYUUxBx5SGqpPdOm3Iqhg38R6G7J75BO";
    

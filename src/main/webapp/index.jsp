@@ -5,36 +5,34 @@ xmlns:c="http://java.sun.com/jsp/jstl/core"
 xmlns:fn="http://java.sun.com/jsp/jstl/functions" >
   <head>
     <jsp:directive.page contentType="text/html;charset=UTF-8"></jsp:directive.page> 
+    <link rel="stylesheet" type="text/css" href="style.css"><jsp:text/></link>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.0.3.js"><jsp:text/></script>
+    <script type="text/javascript" src="script.js"><jsp:text/></script>
   </head>
   <body bgcolor="white">
-    Welcome to the CTOF 14 Services Exercise Sample<br/>
-    <br/>
-    Consuming another service through code<br/>
+    <div class="title1">
+        Welcome to the CTOF 14 Services Exercise Sample
+    </div>
+    <div class="title2">
+        Consuming a service through code
+    </div>
     
     <div>
-      <script type="text/javascript"><![CDATA[
-  $(document).ready(function() {
-    $('#findBest').click(function() {
-      $.ajax({
-        url:'api/testConsumer/'+$('#realmId').val(),
-        contentType:"application/json; charset=utf-8",
-        dataType: 'json',
-        type: 'GET'
-      }).done(function(data) {
-          $('#result').text(data.result);
-      }).fail(function( jqXHR, textStatus, errorThrown) {
-        console.log('always.'+textStatus);
-      });
-    });
-  });
-]]>
-      </script>      
-      RealmID: <input id="realmId" type="text"/><br/>
-      <button id="findBest">Find best restaurant</button>
+      <div class="step">
+        1. <button id="findBest" class="button">Find the best restaurant</button>
+        <span class="buttonNote">Clicking this button will call the TestServiceConsumer.findBestRestaurant method. The result is placed into the text box below.</span>
+      </div>
+      <div class="step">
+        <span class="result">
+        Restaurant for the team: <input id="result" type="text" size="100"></input>
+        </span>
+      </div>
+      <div class="step">
+        2. <button id="postBest" class="button">Send this suggestion back to the feed</button>
+        <span class="buttonNote">Clicking this button will call the TestServiceConsumer.postBestRestaurant method.</span>
+      </div>
       <div>
-        Results:
-        <div id='result'></div>
+        <div id="message" class="message"></div>
       </div>
     </div>
   </body>
