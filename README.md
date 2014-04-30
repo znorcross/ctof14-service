@@ -4,7 +4,7 @@ CTOF Challenge Instructions
 Answers for Part 1b in TestServiceConsumer.java
             
     // Write your code here to choose the best restaurant by setting winningRestaurant to your choice
-    if (itemContent.length() >= winningContent.length()) {
+    if (itemContent.length() >= winningRestaurant.length()) {
       winningRestaurant = itemContent;
     }
 
