@@ -1,18 +1,18 @@
 CTOF Challenge Instructions
 ============================
 
-Answers:
-         for (int index = 0; index < feed.length(); index++)
-         {
-            JSONObject item = feed.getJSONObject(index);
-            String itemContent = item.getString("content");
-            if (!itemContent.startsWith("Let's meet at") && itemContent.length() >= winningContent.length())
-            {
-               winningContent = itemContent;
-            }
-         }
+Answers for Part 1b in TestServiceConsumer.java
+            
+    // Write your code here to choose the best restaurant by setting winningRestaurant to your choice
+    JSONObject item = feed.getJSONObject(index);
+    String itemContent = item.getString("content");
+    if (!itemContent.startsWith("Let's meet at") && itemContent.length() >= winningContent.length()) {
+      winningRestaurant = itemContent;
+    }
 
-        JSONObject json = new JSONObject();
-        json.put("feedType", "note");
-        json.put("content", "Let's meet at "+bestRestaurant);
+    // Write your code here to set the feed type and content just like you did with swagger. The best restaurant is passed as a parameter
+    // Hint: JSONObject is just like a dictionary. You can do feedItem.put("fieldName","fieldValue")
+    // Hint: The two fields you set for a feed note from the swagger documentation are feedType and content
+    feedItem.put("feedType", "note");
+    feedItem.put("content", "Let's meet at "+bestRestaurant);
 
