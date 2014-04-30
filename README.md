@@ -4,8 +4,6 @@ CTOF Challenge Instructions
 Answers for Part 1b in TestServiceConsumer.java
             
     // Write your code here to choose the best restaurant by setting winningRestaurant to your choice
-    JSONObject item = feed.getJSONObject(index);
-    String itemContent = item.getString("content");
     if (!itemContent.startsWith("Let's meet at") && itemContent.length() >= winningContent.length()) {
       winningRestaurant = itemContent;
     }
