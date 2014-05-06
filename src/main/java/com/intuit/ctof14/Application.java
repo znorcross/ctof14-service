@@ -19,12 +19,12 @@ public class Application extends ResourceConfig implements ServletContextListene
    //
    // 
    // TEAM_ID = use TEAM_ID for your table. Please see the card. Your team id is numeric.
-   public final static String TEAM_ID = "";
+   public final static String TEAM_ID = "100200";
    // SERVICE_ID = come up with a unique name for your service. Use your CORP user ID and a name.
    // e.g. jeffb531-blabber
    // You will be using this name to register your service on the Intuit Service Portal
    // And your url for your service will be: https://jeffb531-blabber-service.codenvy.ctof.intuit.com
-   public final static String SERVICE_ID = "";
+   public final static String SERVICE_ID = "jeffb531";
    // APP_ID = Private Auth appid - get from your on boarding exercise from the service portal
    public final static String APP_ID = "";   
    // APP_SECRET = Private Auth secret - get from your on boarding exercise from the service portal

@@ -1,0 +1,8 @@
+{
+  1: {
+    content: "lorem ipsum isum",
+    customerName: "Joe Bob",
+    customerEmail: "joe@bob.com",
+    stars: "3"
+  }
+}
