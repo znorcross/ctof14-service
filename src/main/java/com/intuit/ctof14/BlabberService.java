@@ -1,16 +1,11 @@
 package com.intuit.ctof14;
 
-import java.net.URLEncoder;
-
-import oauth.signpost.AbstractOAuthConsumer;
 import oauth.signpost.OAuthConsumer;
 import com.intuit.ctof14.util.UnirestoAuthConsumer;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
-import com.mashape.unirest.request.HttpRequestWithBody;
 import com.mashape.unirest.request.body.MultipartBody;
-import com.mashape.unirest.request.body.RequestBodyEntity;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 
