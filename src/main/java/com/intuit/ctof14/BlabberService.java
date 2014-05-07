@@ -15,8 +15,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
-@Path("v1/blabber")
-@Api(value="v1/blabber", description="Blabber API - this allows you to re-post messages. v1 will just tweet your message,")
+@Path("v1/blab")
+@Api(value="v1/blab", description="Blabber API - this allows you to re-post messages. v1 will just tweet your message,")
 public class BlabberService
 {
   final static String CONSUMER_KEY = "AeRAWsFntWKrnjSG4Ou1kv70h";

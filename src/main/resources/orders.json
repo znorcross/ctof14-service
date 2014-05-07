@@ -1,0 +1,9 @@
+{
+  1: {
+   customerName: "Jeff Brewer",
+    customerEMail: "jeff@brewer.com",
+    customerText: "121122111",
+    customerAddress: "123 Main St., Redwood City, CA 94065",
+    foodOrder: "1 milk shake, 1 pizza"
+  }
+}

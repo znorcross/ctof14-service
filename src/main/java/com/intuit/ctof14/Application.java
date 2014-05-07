@@ -1,13 +1,17 @@
 package com.intuit.ctof14;
 
-import org.glassfish.jersey.server.ResourceConfig;
-import org.glassfish.jersey.moxy.json.MoxyJsonFeature;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.glassfish.jersey.moxy.json.MoxyJsonFeature;
+import org.glassfish.jersey.server.ResourceConfig;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.intuit.ctof14.Application;
+import com.intuit.ctof14.JsonMoxyConfigurationContextResolver;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -50,7 +54,15 @@ public class Application extends ResourceConfig implements ServletContextListene
 
    public static String getCodenvyAppRunUrl()
    {
+      Logger logger = LoggerFactory.getLogger(Application.class);
+
+      java.util.Map<String, String> env = System.getenv();
+      for (String envName : env.keySet()) {
+          logger.info(envName+":"+env.get(envName));
+      }
+
       String appInstance = System.getenv(VCAP_APPLICATION);
+      logger.debug("JSON ----- "+appInstance);
       String appUrl = null;
 
       if (appInstance != null)
@@ -59,6 +71,7 @@ public class Application extends ResourceConfig implements ServletContextListene
          {
             JSONObject appInstanceObj = new JSONObject(appInstance);
             appUrl = appInstanceObj.getJSONArray("uris").getString(0);
+            logger.debug("Setting url "+appUrl);
          }
          catch (JSONException ex)
          {
