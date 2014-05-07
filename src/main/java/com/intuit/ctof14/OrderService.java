@@ -17,13 +17,13 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path("v1/order")
-@Api(value="v1/order", description="Food orders for a restaurant")
+@Path("v1/orders")
+@Api(value="v1/orders", description="Food orders for a restaurant")
 public class OrderService
 {
   @GET
   @ApiOperation(value="Get an Order of food")
-  @Path("/{id}")
+  @Path("/order/{id}")
   public Response getOrder(@PathParam("id") String id) {
     try {
       InputStream stream = this.getClass().getResourceAsStream("/orders.json");
