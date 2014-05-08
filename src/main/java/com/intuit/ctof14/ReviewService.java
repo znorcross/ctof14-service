@@ -43,6 +43,7 @@ public class ReviewService
   @Path("/dailyRating")
   @GET
   @Produces("application/json")
+  @ApiOperation(value="Get the daily rating", notes = "Returns an average daily star rating")
   public double getDailyRating() {
     return 3.5;
   }

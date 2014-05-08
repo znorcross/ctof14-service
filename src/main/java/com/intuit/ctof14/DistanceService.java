@@ -6,6 +6,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
 import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
 
 @Path("v1/distance")
 @Api(value="v1/distance")
@@ -13,6 +14,7 @@ public class DistanceService
 {
   @GET
   @Produces("application/json")
+  @ApiOperation(value="Distance", notes="Returns the distance between two addresses")
   public double distance(@QueryParam("from") String from, @QueryParam("to") String to) {
     return 3.5;
   }

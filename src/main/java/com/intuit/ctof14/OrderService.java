@@ -22,8 +22,8 @@ import javax.ws.rs.core.Response;
 public class OrderService
 {
   @GET
-  @ApiOperation(value="Get an Order of food")
   @Path("/order/{id}")
+  @ApiOperation(value="Get an Order of food")
   public Response getOrder(@PathParam("id") String id) {
     try {
       InputStream stream = this.getClass().getResourceAsStream("/orders.json");
