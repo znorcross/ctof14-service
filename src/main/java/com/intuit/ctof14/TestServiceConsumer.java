@@ -51,7 +51,7 @@ public class TestServiceConsumer
          for (int index = 0; index < feed.length(); index++)
          {
             JSONObject item = feed.getJSONObject(index);
-            String itemContent = item.getString("content");
+            String itemContent = item.has("content") ? item.getString("content") : "";
             // Write your code here to choose the best restaurant by setting winningRestaurant to your choice
             //
             //
