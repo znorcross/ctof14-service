@@ -23,7 +23,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
     </init-param>
     <init-param>
       <param-name>swagger.api.basepath</param-name>
-      <param-value>http://localhost:8002/rest</param-value>
+      <param-value>/api</param-value>
     </init-param>
     <load-on-startup>2</load-on-startup>
   </servlet>
