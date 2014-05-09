@@ -14,7 +14,7 @@ public class EMailService
 {
   @POST
   @Consumes("application/json")
-  @ApiOperation(value="send e-mail")
+  @ApiOperation(value="send e-mail", notes="send an e-mail", response=Response.class)
   public Response sendEMail(Notification email) {
     // send an e-mail using the ICN service
     return Response.ok().build();
