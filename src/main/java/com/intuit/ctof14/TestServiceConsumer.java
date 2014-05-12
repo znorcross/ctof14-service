@@ -115,4 +115,16 @@ public class TestServiceConsumer
       }
      
    }
+   
+   public Response postEmail() {
+     Notification email = new Notification();
+     email.setSubject("This is test subject");
+     email.setSender("noreply@ctof14.com");
+     email.setRecipient("Ram_Gopal@Intuit.com");
+     email.setMessage("This is a CTOF test email message");
+     
+     EMailService emailService = new EMailService();
+     emailService.sendEMail(email);
+  
+   }
 }
