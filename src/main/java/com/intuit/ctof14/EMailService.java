@@ -1,12 +1,35 @@
 package com.intuit.ctof14;
 
+import org.apache.commons.io.IOUtils;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.intuit.ctof14.ReviewService;
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.request.HttpRequest;
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.StringWriter;
+import java.util.Properties;
+
+import javax.mail.Message;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-
-import com.wordnik.swagger.annotations.Api;
-import com.wordnik.swagger.annotations.ApiOperation;
 
 @Path("v1/email")
 @Api(value = "v1/email", description = "email service")
@@ -21,8 +44,7 @@ public class EMailService
   @Consumes("application/json")
   @ApiOperation(value="send e-mail", notes="send an e-mail", response=Response.class)
   public Response sendEMail(Notification email) {
-      try
-      {
+
   	    // Recipient's email ID needs to be mentioned.
 	      String to = email.getRecipient();
 
@@ -79,7 +101,7 @@ public class EMailService
          return Response.ok(obj.toString(), MediaType.APPLICATION_JSON).build();
     }
 
-   public Response findBestRestaurant()
+/*   public Response findBestRestaurant()
    {
       HttpRequest request = null;
       try
@@ -122,5 +144,5 @@ public class EMailService
          return Response.status(500).build();
       }
    }
-
+*/
 }

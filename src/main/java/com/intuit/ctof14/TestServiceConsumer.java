@@ -121,7 +121,7 @@ public class TestServiceConsumer
      email.setMessage("This is a CTOF test email message");
      
      EMailService emailService = new EMailService();
-     emailService.sendEMail(email);
+     return emailService.sendEMail(email);
   
    }
 }
