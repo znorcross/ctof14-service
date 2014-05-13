@@ -1,12 +1,12 @@
 {
-    "1": {
+   "1": {
             "vendor": "Olive Garden",
             "offer": "Buy 2 entrees get a 3rd one free"
-        }
+        },
     "2": {
             "vendor": "Macy's",
             "offer": "25% off our new summer clothing line"
-          }
+          },
     "3": {
             "vendor": "TicketMaster",
             "offer": "$40 for 2 tickets to Country Music Fest!"
