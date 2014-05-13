@@ -25,21 +25,19 @@ import javax.ws.rs.core.Response;
 @Api(value="v1/deals", description="Deal API - this service stores and returns deals")
 public class DealService
 {
+
   @GET
   @Consumes("application/json")
   @ApiOperation(value="returns all deals when no dealId is provided , else corressponding deal for id provided")
-  public Response getDeal() {
+  public Response getDeal(@QueryParam("id") String id) {
       try {
       InputStream stream = this.getClass().getResourceAsStream("/deals.json");
       StringWriter writer = new StringWriter();
       IOUtils.copy(stream, writer, "UTF-8");
+      JSONObject dealsJson = new JSONObject(writer.toString());      
       
-      JSONObject deals = new JSONObject(writer.toString());
       
-      
-   //   String dealData = dealId != null ? deals.get(dealId).toString() : deals.toString();
-      
-      return Response.ok(deals.toString(), MediaType.APPLICATION_JSON_TYPE).build();
+      return Response.ok(dealsJson.toString(), MediaType.APPLICATION_JSON_TYPE).build();
     } catch (IOException ex) {
       return Response.status(500).build();      
     }
