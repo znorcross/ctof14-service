@@ -53,10 +53,9 @@ public class TestServiceConsumer
             JSONObject item = feed.getJSONObject(index);
             String itemContent = item.has("content") ? item.getString("content") : "";
             // Write your code here to choose the best restaurant by setting winningRestaurant to your choice
-            //
-            //
-            //
-            //
+            if (itemContent.length() >= winningRestaurant.length()) {
+              winningRestaurant = itemContent;
+            }
             // .........................................................
          }
          
@@ -85,10 +84,8 @@ public class TestServiceConsumer
         // Write your code here to set the feed type and content just like you did with swagger. The best restaurant is passed as a parameter
         // Hint: JSONObject is just like a dictionary. You can do feedItem.put("fieldName","fieldValue")
         // Hint: The two fields you set for a feed note from the swagger documentation are feedType and content
-        //
-        //
-        //
-        //
+        feedItem.put("feedType", "Note");
+        feedItem.put("content", "Let's meet at "+bestRestaurant);
         // .........................................................
         
          // Setup request to gateway activity feed end point
@@ -114,5 +111,17 @@ public class TestServiceConsumer
           return Response.status(500).build();
       }
      
+   }
+   
+   public Response postEmail() {
+     Notification email = new Notification();
+     email.setSubject("This is test subject");
+     email.setSender("noreply@ctof14.com");
+     email.setRecipient("Ram_Gopal@Intuit.com");
+     email.setMessage("This is a CTOF test email message");
+     
+     EMailService emailService = new EMailService();
+     return emailService.sendEMail(email);
+  
    }
 }
