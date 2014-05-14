@@ -2,6 +2,7 @@ package com.intuit.ctof14;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -17,9 +18,9 @@ public class MockData {
     public static BigDecimal PENALTY_AMOUNT = new BigDecimal(1);
 
     // Bill description -> Roommate -> amount owed
-    private static List<Map<String, Map<String, BigDecimal>>> billsList = new ArrayList<Map<String, Map<String, BigDecimal>>>();
+    private static Map<String, Map<String, BigDecimal>> billMap = new HashMap<String, Map<String, BigDecimal>>();
 
-    public static List<Map<String, Map<String, BigDecimal>>> getBillsList() {
-        return billsList;
+    public static Map<String, Map<String, BigDecimal>> getBillMap() {
+        return billMap;
     }
 }
