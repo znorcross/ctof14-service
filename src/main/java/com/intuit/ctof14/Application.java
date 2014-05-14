@@ -37,7 +37,7 @@ public class Application extends ResourceConfig implements ServletContextListene
     private final static String VCAP_APPLICATION = "VCAP_APPLICATION";
 
     public Application() {
-        packages("com.wordnik.swagger.jersey.listing;com.intuit.ctof14");
+        packages("com.wordnik.swagger.jersey.listing;com.intuit.ctof14.resources");
         register(MoxyJsonFeature.class);
         register(JsonMoxyConfigurationContextResolver.class);
     }

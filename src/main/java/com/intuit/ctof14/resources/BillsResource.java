@@ -31,7 +31,7 @@ public class BillsResource {
     @POST
     @Consumes("application/json")
     @Produces("application/json")
-    @ApiOperation(value = "Add a Bill", notes = "More notes about this method")
+    @ApiOperation(value = "Add a bill", notes = "Add a bill")
     public Response addBill(@ApiParam(
             name = "Bill",
             value = "Bill",
