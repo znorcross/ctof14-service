@@ -45,6 +45,8 @@ public class PaymentsResource {
                 billDetails.put(pPayment.getPayerName(), billDetails.get(pPayment.getPayerName()).subtract(pPayment.getAmount()));
             }
 
+            // todo call stripe api
+
             return Response.ok().build();
         } catch (Exception e) {
             e.printStackTrace();

@@ -46,6 +46,8 @@ public class BillsResource {
 
             MockData.getBillMap().put(pBill.getDescription(), billDetails);
 
+            // todo post to activity feed
+
             return Response.ok().build();
         } catch (Exception e) {
             e.printStackTrace();
