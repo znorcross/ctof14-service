@@ -44,9 +44,7 @@ public class BillsResource {
 
             // todo add penalty (rounding + 1)
 
-            Map<String, Map<String, BigDecimal>> bill = new HashMap<String, Map<String, BigDecimal>>();
-            bill.put(pBill.getDescription(), billDetails);
-            MockData.getBillsList().add(bill);
+            MockData.getBillMap().put(pBill.getDescription(), billDetails);
 
             return Response.ok().build();
         } catch (Exception e) {
