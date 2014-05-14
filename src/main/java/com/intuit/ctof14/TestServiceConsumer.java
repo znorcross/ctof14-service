@@ -54,7 +54,7 @@ public class TestServiceConsumer
             String itemContent = item.has("content") ? item.getString("content") : "";
             if(itemContent.length() > winningRestaurant.length()) {
                winningRestaurant = itemContent;
-            }           
+            }
          }
          
          // Return winner
