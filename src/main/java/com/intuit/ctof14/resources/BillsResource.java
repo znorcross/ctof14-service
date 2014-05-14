@@ -5,6 +5,7 @@ import com.intuit.ctof14.model.Bill;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
+import org.apache.log4j.Logger;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
@@ -25,6 +26,8 @@ import java.util.Map;
 @Path("/v1/bills")
 @Api(value="/v1/bills", description="Add a bill for the roommates to pay")
 public class BillsResource {
+    private static Logger logger = Logger.getLogger(BillsResource.class);
+
     @POST
     @Consumes("application/json")
     @Produces("application/json")
@@ -50,8 +53,8 @@ public class BillsResource {
 
             return Response.ok().build();
         } catch (Exception e) {
-            e.printStackTrace();
-            return Response.status(500).build();
+            logger.error(e);
+            return Response.status(500).entity(e.getMessage()).build();
         }
     }
 }
