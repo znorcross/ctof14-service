@@ -12,13 +12,15 @@ import java.math.BigDecimal;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
+        "billDescription",
         "amount",
-        "payerId"
+        "payerName"
 })
 @XmlRootElement(name = "Payment")
 public class Payment {
+    private String billDescription;
     private BigDecimal amount;
-    private String payerId;
+    private String payerName;
 
     @XmlElement(name = "amount")
     public BigDecimal getAmount() {
@@ -29,12 +31,21 @@ public class Payment {
         this.amount = amount;
     }
 
-    @XmlElement(name = "payerId")
-    public String getPayerId() {
-        return payerId;
+    @XmlElement(name = "billDescription")
+    public String getBillDescription() {
+        return billDescription;
     }
 
-    public void setPayerId(String payerId) {
-        this.payerId = payerId;
+    public void setBillDescription(String billDescription) {
+        this.billDescription = billDescription;
+    }
+
+    @XmlElement(name = "payerName")
+    public String getPayerName() {
+        return payerName;
+    }
+
+    public void setPayerName(String payerName) {
+        this.payerName = payerName;
     }
 }

@@ -12,6 +12,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -19,26 +22,35 @@ import java.math.BigDecimal;
  * Date: 5/14/14
  * Time: 1:29 PM
  */
-@Path("/v1/shame/bills")
-@Api(value="/v1/shame/bills", description="Add a bill for the roommates to pay")
-public class ShameResource {
+@Path("/v1/bills")
+@Api(value="/v1/bills", description="Add a bill for the roommates to pay")
+public class BillsResource {
     @POST
     @Consumes("application/json")
     @Produces("application/json")
     @ApiOperation(value = "Blab a message", notes = "More notes about this method")
-    public Response blab(@ApiParam(
+    public Response addBill(@ApiParam(
             name = "Bill",
             value = "Bill",
             required = true,
             defaultValue = "{\"amount\":100.00, \"description\": \"blah\"}")
                          Bill pBill) {
         try {
-            BigDecimal roommateAmount = pBill.getAmount();
+            Map<String, BigDecimal> billDetails = new HashMap<String, BigDecimal>();
+            BigDecimal roommateAmount = pBill.getAmount().subtract(MockData.PENALTY_AMOUNT).divide(new BigDecimal(MockData.roommates.length)).setScale(2, RoundingMode.HALF_UP);
             for (String roommate : MockData.roommates) {
-
+                billDetails.put(roommate, roommateAmount);
             }
+
+            // todo add penalty (rounding + 1)
+
+            Map<String, Map<String, BigDecimal>> bill = new HashMap<String, Map<String, BigDecimal>>();
+            bill.put(pBill.getDescription(), billDetails);
+            MockData.getBillsList().add(bill);
+
             return Response.ok().build();
         } catch (Exception e) {
+            e.printStackTrace();
             return Response.status(500).build();
         }
     }

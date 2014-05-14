@@ -13,7 +13,8 @@ import java.util.Map;
  */
 public class MockData {
     public static String[] roommates = new String[]{"Shankar", "Susan", "Jake"};
-    private static BigDecimal PENALTY_AMOUNT = new BigDecimal(1);
+    public static String PENALTY_NAME = "Penalty";
+    public static BigDecimal PENALTY_AMOUNT = new BigDecimal(1);
 
     // Bill description -> Roommate -> amount owed
     private static List<Map<String, Map<String, BigDecimal>>> billsList = new ArrayList<Map<String, Map<String, BigDecimal>>>();
