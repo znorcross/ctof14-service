@@ -132,10 +132,6 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$" />
   </component>
-  <component name="GradleSettings">
-    <option name="gradleHome" value="D:\gradle-1.5" />
-    <option name="preferLocalInstallationToWrapper" value="true" />
-  </component>
   <component name="IdProvider" IDEtalkID="8C61A2476285FE5B33AD08681B584D60" />
   <component name="MavenProjectsManager">
     <option name="originalFiles">
