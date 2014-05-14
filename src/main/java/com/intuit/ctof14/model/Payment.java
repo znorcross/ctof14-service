@@ -1,9 +1,6 @@
 package com.intuit.ctof14.model;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 import java.math.BigDecimal;
 
 /**
@@ -23,6 +20,7 @@ public class Payment {
     private BigDecimal amount;
     private String payerId;
 
+    @XmlElement(name = "amount")
     public BigDecimal getAmount() {
         return amount;
     }
@@ -31,6 +29,7 @@ public class Payment {
         this.amount = amount;
     }
 
+    @XmlElement(name = "payerId")
     public String getPayerId() {
         return payerId;
     }
